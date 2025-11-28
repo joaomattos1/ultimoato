@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lançamento Especial</title><!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+  :root {
+    --primary-color: #ffffff;
+    --accent-color: #0e7bff;
+    --button-bg: #10b981;
+    --button-hover: #059669;
+  }
+
+  body {
+    background-color: #000;
+    color: var(--primary-color);
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+  }
+
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+
+  .header-title {
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    background: linear-gradient(to right, #ffffff, #a8c6ff);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .subtitle {
+    font-size: clamp(1rem, 2.8vw, 1.6rem);
+    text-align: center;
+    opacity: 0.85;
+    margin-bottom: 2rem;
+  }
+
+  .video-container {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    border: none;
+  }
+
+  .cta-button {
+    margin: 40px auto 0;
+    display: none;
+    padding: 24px 48px;
+    background-color: var(--button-bg);
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    text-decoration: none;
+  }
+
+  .cta-button.visible {
+    display: block;
+    opacity: 1;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
+    }
+  }
+
+  .cta-button:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.08);
+  }
+
+  .urgency-banner {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.9) 0%, rgba(220, 38, 38, 0.9) 100%);
+    border-radius: 12px;
+    padding: 16px 24px;
+    margin: 30px auto 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(239, 68, 68, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    animation: urgencyPulse 2s ease-in-out infinite;
+    max-width: 860px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  @keyframes urgencyPulse {
+    0%, 100% {
+      box-shadow: 0 8px 32px rgba(239, 68, 68, 0.4);
+    }
+    50% {
+      box-shadow: 0 8px 40px rgba(239, 68, 68, 0.7);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cta-button {
+      font-size: 1.2rem;
+      padding: 20px 36px;
+    }
+
+    .urgency-banner {
+      font-size: 0.95rem;
+      padding: 14px 20px;
+    }
+  }
+
+  .features {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 900px;
+    margin: 40px auto 0;
+    padding: 0 1rem;
+  }
+
+  .feature-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover {
+    background: rgba(14, 123, 255, 0.1);
+    transform: translateY(-4px);
+    border-color: rgba(14, 123, 255, 0.3);
+  }
+
+  .feature-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .feature-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0e7bff;
+    margin: 0 0 8px 0;
+  }
+
+  .feature-description {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .features {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .feature-card {
+      min-width: 100%;
+      max-width: 100%;
+    }
+  }
+</style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="container mx-auto mt-10 px-4">
+   <h1 id="header-title" class="header-title">ÚLTIMO ATO</h1>
+   <p id="subtitle" class="subtitle">a oportunidade final</p>
+   <div class="urgency-banner">
+    ⚠️ ESSE VÍDEO SERÁ EXCLUÍDO EM BREVE...
+   </div>
+   <div class="video-container"><iframe id="video-frame" src="https://www.youtube.com/embed/iRNNionRyUw?autoplay=0&amp;rel=0" allowfullscreen> </iframe>
+   </div><a id="cta-button" class="cta-button" href="https://wa.me/message/ZJGRYHBF3NMCJ1" target="_blank" aria-label="Botão principal"> EU QUERO </a>
+   <div class="features">
+    <div class="feature-card"><span class="feature-icon">🎯</span>
+     <h3 class="feature-title">Conteúdo Exclusivo</h3>
+     <p class="feature-description">Preparado especialmente para você</p>
+    </div>
+    <div class="feature-card"><span class="feature-icon">⏱️</span>
+     <h3 class="feature-title">Assista Completo</h3>
+     <p class="feature-description">Mais rápido que fazer um miojo</p>
+    </div>
+   </div>
+  </div>
+  <script>
+  function convertVideoUrl(url) {
+    try {
+      let videoId = null;
+
+      if (url.includes('youtube.com/watch')) {
+        videoId = new URL(url).searchParams.get('v');
+      } else if (url.includes('youtu.be/')) {
+        videoId = url.split('youtu.be/')[1].split('?')[0];
+      }
+
+      if (!videoId) return null;
+
+      return `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
+    } catch {
+      return null;
+    }
+  }
+
+  const iframe = document.getElementById('video-frame');
+  const ctaButton = document.getElementById('cta-button');
+
+  // Botão aparece após 2 minutos e 15 segundos
+  setTimeout(() => {
+    ctaButton.classList.add('visible');
+  }, 135000);
+
+  // Element SDK (se existir)
+  if (window.elementSdk) {
+    window.elementSdk.config.onChange((config) => {
+
+      if (config.name) {
+        document.getElementById('header-title').textContent = config.name;
+      }
+
+      if (config.description) {
+        document.getElementById('subtitle').textContent = config.description;
+      }
+
+      if (config.video_url) {
+        const embedUrl = convertVideoUrl(config.video_url);
+        if (embedUrl) iframe.src = embedUrl;
+      }
+
+      if (config.button_text) {
+        ctaButton.textContent = config.button_text;
+      }
+
+      if (config.button_url) {
+        ctaButton.href = config.button_url;
+      }
+
+      if (config.button_color) {
+        ctaButton.style.backgroundColor = config.button_color;
+      }
+    });
+  }
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a576ef696cd7dff',t:'MTc2NDMwNzQwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
